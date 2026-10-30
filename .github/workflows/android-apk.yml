@@ -32,12 +32,8 @@ jobs:
 
       # 修改这里，加上签名参数
       - name: Build Android APK
-        run: >
-          flet build apk --yes
-          --android-signing-key-store $RUNNER_TEMP/release.p12
-          --android-signing-key-alias ${{ secrets.KEY_ALIAS }}
-          --android-signing-key-store-password ${{ secrets.STORE_PASSWORD }}
-          --android-signing-key-password ${{ secrets.KEY_PASSWORD }}
+        run: flet build apk --yes --android-signing-key-store $RUNNER_TEMP/release.p12 --android-signing-key-alias ${{ secrets.KEY_ALIAS }} --android-signing-key-store-password ${{ secrets.STORE_PASSWORD }} --android-signing-key-password ${{ secrets.KEY_PASSWORD }}
+
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
